@@ -1,13 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import RouletteItem from './rouletteItem';
-import {animated, Spring, useSpring } from 'react-spring'
+import {animated, useSpring } from 'react-spring'
  
-
 function RouletteStrip (props) {
-
-        const redMargin= 14500
-        const blackMargin=  14644
-        const greenMargin= 14932
 
         let items = []
 
@@ -23,36 +18,20 @@ function RouletteStrip (props) {
             }
         }
 
-        var marginLeft;
+        const roll = {mass: 200, friction: 600, tension: 330, clamp: true}
+        const reset = {duration: 500, clamp: false}
 
-        if(props.winningColor == 'green'){
-            marginLeft = greenMargin - Math.floor(Math.random() * 70) - 50
-
-        }else if(props.winningColor == 'black'){
-            marginLeft = blackMargin - Math.floor(Math.random() * 70) - 50
-
-        }else{
-            marginLeft = redMargin - Math.floor(Math.random() * 70) - 50
-        }
-
-        const roll = {mass: 200,friction: 600, tension: 330, clamp: true}
-        const reset = {duration: 500, clamp: true}
 
 
         const rollAnimation = useSpring({
             to: {marginLeft: '0px'},
             from: {marginLeft: '-3000px'},
-            reset: false,
-            immediate: props.roll,
+            reset: true,
+            immediate: props.startRoll,
             delay: 0,
-            config: {
-                mass: 1,
-                tension: 100,
-                friction: 200
-            },
-            onRest: props.rollDone
+            config: roll,
+            onRest: props.rollDone,
         })
-   
 
         return (
             

@@ -25,10 +25,7 @@ const socketServer = socketIO(httpServer, {
   },
 });
 
-socketServer.on("connection", (socket) => {
-  socket.on("clicked", (data) => {
-  })
-})
+
 
 app.use(cors({
   origin: true,
@@ -66,3 +63,6 @@ httpServer.listen(4000, () => {
 passportConfig(passport);
 
 app.use('/api', userRoutes);
+
+const roulette = require('./data/roulette')(socketServer);
+

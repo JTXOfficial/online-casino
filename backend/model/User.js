@@ -17,6 +17,10 @@ const User = new mongoose.Schema({
         type: String,
         default: 5,
     },
+    roulette_bet: {
+        type: Number,
+        default: 0,
+    },
 })
 
 User.methods.matchEmail = function (email) {

@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 
 class RouletteItem extends Component{
 
-    state = {}
-
-    constructor(){
-        super()
-    }
-
     render(){
 
         const rect = {

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import {animated, Spring, useSpring} from 'react-spring'
+import React from 'react'
+import {animated, useSpring} from 'react-spring'
 
 const Countdown = (props) => {
 
@@ -39,42 +39,39 @@ const Countdown = (props) => {
         backgroundColor: '#1a1e23',
     }
 
-
     const countdown = useSpring({
         from: {number: props.countdown},
         to: {number: 0},
         reset: true,
-        immediate: props.count,
+        immediate: props.startCountdown,
         config: {
             duration: props.countdown * 1000
         },
-        onRest: props.countdownDone
-    })
+        onRest: props.countdownDone,
+    });
 
+    const lineM = useSpring({
+        from: {line},
+        to: {lineDone},
+        reset: true,
+        immediate: false,
+        config: {
+            duration: props.countdown * 1000
+        }
+    });
+    
     return (
         <div>
-            <center>
-                <div style={{marginBottom: '10px'}}>
+                <div style={{marginBottom: '10px', textAlign: 'center'}}>
                     <span style={text}>Rolling in</span>
-                    <animated.span>
-                    {countdown.number.interpolate(countdown =>countdown.toFixed(2))}
+                    <animated.span style={clock}>
+                    {countdown.number.to(countdown =>countdown.toFixed(2))}
                     </animated.span>
                 </div>
-            </center>
-
+{/* 
             <div style={lineContainer}>
-                {/* <Spring
-                    from = {line}
-                    to = {lineDone}
-                    reset = {true}
-                    immediate = {false}
-                    config = {{
-                        duration: time * 1000
-                    }}
-                    >
-                    {props => <div style={props}/>}
-                </Spring> */}
-            </div>
+                <animated.span style={lineM}/>                
+            </div>  */}
         </div>
     );
 }
