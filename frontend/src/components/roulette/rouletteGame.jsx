@@ -1,35 +1,20 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { Component } from "react";
 import Countdown from "./countdown";
 import RouletteStrip from "./rouletteStrip";
 
-function RouletteGame() {
+class RouletteGame extends Component{
+
+            //#region Styles
 
 
+        shouldComponentUpdate(nextProps, nextState){
+            if(nextProps.roll !== this.props.roll){
+                return true;
+            }        
+            return false;
+        }
+        render() {
 
-    const [startRoll, setStartRoll] = useState(true);
-    const [startCountdown, setStartCountdown] = useState(false);
-    const [countdown, setCountdown] = useState(0);
-
-
-    const countdownDone = () => {
-
-        
-
-        setStartRoll(false);
-        setStartCountdown(true);
-    };
-
-    const rollDone = () => {
-        setStartRoll(true);
-        setStartCountdown(false);
-        setCountdown(10);
-    };
-    
-
-
-
-        //#region Styles
         const container = {
             width: '100%',
             maxWidth: '100%',
@@ -49,7 +34,7 @@ function RouletteGame() {
         const line = {
             position: 'absolute',
             width: '0.1875rem',
-            height: '50%',
+            height: '15%',
            //background: 'linear-gradient(180deg,transparent,#fff,transparent)',
             background: 'black',
             // opacity: '.8',
@@ -63,14 +48,16 @@ function RouletteGame() {
         return(
             <div>
                 <div style={{marginTop: '20px'}}>
-                    <Countdown startCountdown={startCountdown} countdown={countdown} countdownDone={countdownDone}/>
+                    <Countdown time={this.props.countdown}/>
                 </div>
                 <div style={container} id="rouletteGameContainer">
                     <div style={line}></div>
-                    <RouletteStrip startRoll={startRoll} rollDone={rollDone}/>
-                </div>              
+                    <RouletteStrip roll={this.props.roll} winningColor={this.props.winningColor}/>
+                </div>
+
             </div>
             )
+        }
 }
 
 export default RouletteGame;

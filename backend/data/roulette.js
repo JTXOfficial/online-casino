@@ -1,55 +1,81 @@
 const User = require('../model/User');
 const Round = require('../model/roulette_round');
+const crypto = require('crypto');
 
 
 exports = module.exports = function(io) {
     const nsp = io.of('/roulette');
     
     const rouletteState = {
-        startRoll: true,
-        startCountdown: false,
-        countdownStarted: new Date()
+        active: false,
+        countdownStarted: 20
     }
 
-    countdown();
+    startCountdown();
 
-    function countdown() {
-        rouletteState.startRoll = false;
-        rouletteState.startCountdown = true;
-        rouletteState.countdownStarted = new Date();
-        nsp.emit('countdown', rouletteState);
-        setTimeout(roll, 20000)
+    function startCountdown(){
+        rouletteState.countdownStarted = 20;
+        rouletteState.active = false;
+        nsp.emit('sync', rouletteState);
+        setTimeout(roll, 20000);
     }
 
+    
+    // Generate a server seed
+    let clientSeed = "";
+    // Hash the server seed to create a public seed
+    const serverSeed = crypto.createHash('sha256').update(clientSeed).digest('hex');
+    var nonce = 0;
+    
+    function getRollSpinFromHash(hash) {
+        const subHash = hash.substr(0, 8);
+        const spinNumber = parseInt(subHash, 16);
+        return Math.abs(spinNumber) % 15;
+    }
+
+    function getRollSpin(serverSeed, clientSeed, nonce) {
+        const seed = getCombinedSeed(serverSeed, clientSeed, nonce);
+        const hash = crypto.createHmac('sha256', seed).digest('hex');
+        return getRollSpinFromHash(hash);
+    }
+    
+    function getCombinedSeed(serverSeed, clientSeed, nonce) {
+        return [serverSeed, clientSeed, nonce].join('-');
+    }
+
+    function getRollColour(roll) {
+        if(roll === 0) {
+          return 'green';
+        } else if(roll % 2 == 0) {
+          return 'black';
+        } else {
+            return 'red'
+        }
+    }
+    
 
     function roll(){
-        var winningColor = 'red';
-        var multiplier = 2;
-        Math.floor(Math.random() * 15);
+        nonce = nonce + 1;
+        clientSeed = crypto.randomBytes(32);
 
-        if(Math.floor(Math.random() * 15) == 0){
-            winningColor = 'green';
-            multiplier = 14;
-        }else if(Math.random() >= 0.5){
-            winningColor = 'red';
-            multiplier = 2;
-        }else{
-            winningColor = 'black';
-            multiplier = 2;
-        }
+        // Here we use the seeds to calculate the spin (a number ranging from 0 to 14)
+        const rollNumber = getRollSpin(serverSeed, clientSeed, nonce);
+        const rollColour = getRollColour(rollNumber);
+
+
+        console.log(`Spin: ${rollNumber}, Spin Colour: ${rollColour}`);
+
 
         let round = new Round({
             gamemode: 'roulette',
-            outcome: winningColor,
+            outcome: rollColour,
             date: new Date()
         });
 
         round.save(function(err){
-            console.log('Rolling: ' + winningColor);
-            rouletteState.startRoll = false;
-            rouletteState.startCountdown = true;
-            nsp.emit('roll', {'color': winningColor});
-            setTimeout(countdown, 13000);
+            rouletteState.active = true;
+            nsp.emit('roll', {'color': rollColour});
+            setTimeout(startCountdown, 13000);
         });
 
     }

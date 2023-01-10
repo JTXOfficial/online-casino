@@ -34,7 +34,7 @@ class RouletteItem extends Component{
         }
 
         return (
-            <span style={rect} key={this.props.id}><span style={text}>{this.props.number}</span></span>
+            <span style={rect} key={this.props.id}><span style={text}></span></span>
         );
     }
 

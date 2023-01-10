@@ -10,6 +10,7 @@ const session = require('express-session'); // session middleware
 const passportLocal = require("passport-local").Strategy;
 const passport = require('passport');  // authentication
 const User = require('./model/User.js'); // User Model 
+const Bet = require('./model/bets');
 const passportConfig = require('./passportConfig');
 
 
