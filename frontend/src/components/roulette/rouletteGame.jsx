@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Countdown from "./countdown";
 import RouletteStrip from "./rouletteStrip";
+import spin from '../../spin-select.svg';
 
 class RouletteGame extends Component{
 
@@ -33,14 +34,14 @@ class RouletteGame extends Component{
 
         const line = {
             position: 'absolute',
-            width: '0.1875rem',
-            height: '15%',
+            //width: '0.1875rem',
+            height: '9%',
            //background: 'linear-gradient(180deg,transparent,#fff,transparent)',
-            background: 'black',
+            //background: 'black',
             // opacity: '.8',
 
             // boxShadow: '1px 1px 5px 1px black',
-            zIndex: 2
+           // zIndex: 2
         };
 
         //#endregion
@@ -51,8 +52,8 @@ class RouletteGame extends Component{
                     <Countdown time={this.props.countdown}/>
                 </div>
                 <div style={container} id="rouletteGameContainer">
-                    <div style={line}></div>
-                    <RouletteStrip roll={this.props.roll} winningColor={this.props.winningColor}/>
+                    <img src={spin} alt="line" style={line}/>
+                    <RouletteStrip roll={this.props.roll} winningColor={this.props.winningColor} marginLeft={this.props.marginLeft}/>
                 </div>
 
             </div>

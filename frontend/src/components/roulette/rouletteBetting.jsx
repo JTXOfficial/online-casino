@@ -1,19 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoins } from '@fortawesome/free-solid-svg-icons'
-import styled from 'styled-components'
-import { useState } from "react";
 
-
-
-function RouletteBetting () {
-
-
-
-        const [totalBets, setTotalBets] = useState(0);
-        const [bets, setBets] = useState([]);
-        const [player, setPlayer] = useState([]);
-
+function RouletteBetting (props) {
 
         const container = {
             display: 'block',
@@ -48,7 +37,7 @@ function RouletteBetting () {
             lineHeight: 1,
             margin: '0.3rem',
             fontSize: '0.75rem',
-            top: '-12px',
+            top: '-11px',
         }
 
         const betInput = {
@@ -59,7 +48,7 @@ function RouletteBetting () {
             left: '10px',
             width: '50%',
             position: 'relative',
-            top: '5px',
+            top: '3px',
             justifyContent: 'right',
             border: 'none',
     
@@ -72,15 +61,10 @@ function RouletteBetting () {
             color: 'white',
             border: 'none',
             fontSize: '0.75rem',
-            marginLeft: '2px',
+            marginLeft: '10px',
             position: 'relative',
-            left: '10px',
+            left: '15px',
             top: '5px',
-            '@media (max-width: 500px)': {
-                fontSize: '0.5rem',
-                left: '0',
-              }
-              
           };
 
 
@@ -101,17 +85,6 @@ function RouletteBetting () {
         //         color: 'white'
 
         //     }
-
-
-        //     var Table = styled.table`
-        //         display: table-cell;
-        //     `
-        
-        const handleClick = () => {
-            setBets([2,2])
-            setPlayer(['Ryan', 'Tigan'])
-        }
-      
           
         return( 
             <div>
@@ -130,84 +103,79 @@ function RouletteBetting () {
                         <button style={betButton}>Max</button>
                 </div>
 
-                <div class="grid space-y-3 p-4 sm:grid-cols-3 sm:space-y-0 sm:space-x-3">
-                    <div class="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
-                        <div class="my-auto">0.00</div>
+                <div className="grid space-y-3 p-4 sm:grid-cols-3 sm:space-y-0 sm:space-x-3">
+                    <div className="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
+                        <div className="my-auto">0.00</div>
 
-                        <button class="w-32 rounded bg-red-600 p-4 py-2 text-center" onClick={handleClick}>BET 2X</button>
+                        <button className="w-32 rounded bg-red-600 p-4 py-2 text-center">BET 2X</button>
                     </div>
-                    <div class="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
-                        <div class="my-auto">0.00</div>
+                    <div className="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
+                        <div className="my-auto">0.00</div>
 
-                        <button class="w-32 rounded bg-green-600 p-4 py-2 text-center">BET 14X</button>
+                        <button className="w-32 rounded bg-green-600 p-4 py-2 text-center">BET 14X</button>
                     </div>
-                    <div class="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
-                        <div class="my-auto">0.00</div>
-                        <button class="w-32 rounded bg-gray-600 p-4 py-2 text-center">BET 2X</button>
-                    </div>
-                </div>
-
-
-
-                <div class="grid space-y-3 p-4 sm:grid-cols-3 sm:space-y-0 sm:space-x-3">
-                    <div class="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
-                        <div>
-                            <div>0 Bets</div>
-                        </div>
-
-                        <div class="text-right">
-                            <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> {totalBets}</div>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
-                        <div>
-                            <div>0 Bets</div>
-                        </div>
-
-                        <div class="text-right">
-                            <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> 0</div>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
-                        <div>
-                            <div>0 Bets</div>
-                        </div>
-
-                        <div class="text-right">
-                            <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> 0</div>
-                        </div>
+                    <div className="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
+                        <div className="my-auto">0.00</div>
+                        <button className="w-32 rounded bg-gray-600 p-4 py-2 text-center">BET 2X</button>
                     </div>
                 </div>
 
 
-                <div class="grid space-y-3 p-4 sm:grid-cols-3 sm:space-y-0 sm:space-x-3">
-                    <div class="flex flex-row justify-between p-4 text-white">
+
+                <div className="grid space-y-3 p-4 sm:grid-cols-3 sm:space-y-0 sm:space-x-3">
+                    <div className="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
                         <div>
-                            {player.map(player => <div>{player}</div>)}
+                            <div>0 Bets</div>
                         </div>
 
-                        <div class="text-right">
-                            {bets == 0 ? (
-                                
-                                <div/>
-                            ) : (
-                                bets.map(bet => <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> {bet}</div>)
-                            )}
+                        <div className="text-right">
+                            <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> {props.totalBets}</div>
                         </div>
                     </div>
-                    <div class="flex flex-row justify-between p-4 text-white">
+                    <div className="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
+                        <div>
+                            <div>0 Bets</div>
+                        </div>
+
+                        <div className="text-right">
+                            <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> 0</div>
+                        </div>
+                    </div>
+                    <div className="flex flex-row justify-between rounded bg-dark-grey p-4 text-white">
+                        <div>
+                            <div>0 Bets</div>
+                        </div>
+
+                        <div className="text-right">
+                            <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> 0</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className="grid space-y-3 p-4 sm:grid-cols-3 sm:space-y-0 sm:space-x-3">
+                    <div className="flex flex-row justify-between p-4 text-white">
+                        <div>
+                             {props.players.map(player => <div>{player}</div>)}
+                        </div>
+
+                        <div className="text-right">
+                            {props.bets.map(bet => <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> {bet}</div>)}
+                        </div>
+                    </div>
+                    <div className="flex flex-row justify-between p-4 text-white">
                         <div>
                             <div>Player 2</div>
                             <div>Player 2</div>
 
                         </div>
 
-                        <div class="text-right">
+                        <div className="text-right">
                             <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> 12.00</div>
                             <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> 12.00</div>
                         </div>
                     </div>
-                    <div class="flex flex-row justify-between p-4 text-white">
+                    <div className="flex flex-row justify-between p-4 text-white">
                         <div>
                             <div>Player 3</div>
                             <div>Player 3</div>
@@ -216,7 +184,7 @@ function RouletteBetting () {
 
                         </div>
 
-                        <div class="text-right">
+                        <div className="text-right">
                             <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> 1.50</div>
                             <div><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> 1.50</div>
 
