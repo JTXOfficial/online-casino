@@ -8,8 +8,15 @@ const rouletteSchema = mongoose.Schema({
         type: Date,
     },
     outcome: {
-        type: String
-    }
+        type: String,
+    },
+    client_seed: {
+        type: String,
+    },
+    server_seed: {
+        type: String,
+    },
+
 });
 
 const Round = mongoose.model('RouletteRounds', rouletteSchema);

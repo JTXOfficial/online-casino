@@ -33,9 +33,10 @@ class RouletteGame extends Component{
         };
 
         const line = {
+            height: '10vh',
             position: 'absolute',
             //width: '0.1875rem',
-            height: '9%',
+            // height: '12%',
            //background: 'linear-gradient(180deg,transparent,#fff,transparent)',
             //background: 'black',
             // opacity: '.8',
@@ -50,7 +51,7 @@ class RouletteGame extends Component{
             <div>
                 <div style={{marginTop: '20px'}}>
                     <Countdown time={this.props.countdown}/>
-                </div>
+                </div> 
                 <div style={container} id="rouletteGameContainer">
                     <img src={spin} alt="line" style={line}/>
                     <RouletteStrip roll={this.props.roll} winningColor={this.props.winningColor} marginLeft={this.props.marginLeft}/>

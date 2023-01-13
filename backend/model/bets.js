@@ -10,19 +10,26 @@ const betSchema = mongoose.Schema({
 });
 
 betSchema.statics.removeActiveBets = function removeActiveBets(){
-    mongoose.model('Bets').deleteMany({active: true}, function(err, bets){
-        console.log('Removed active bets');
+    // Delete all bets documents
+    mongoose.model('Bets').deleteMany({}, (err, result) => {
+        if (err) {
+            console.log(err.message);
+            return cb(err);
+        } else {
+            console.log(`Deleted all bets: ${result.deletedCount}`);
+        }
     });
 }
 
 betSchema.methods.finish = function chargeBet(multiplier, cb){
     return new Promise((resolve, reject) => {
         let bet = this;
-        success = false;
         mongoose.model('Bets').findOne(this).populate('owner').exec(function(err, populatedBet){
+            if(!populatedBet) return resolve(false)
             var user = populatedBet.owner;
             user.balance -= bet.amount;
-            user.balance += bet.amount * multiplier;
+            user.balance += (bet.amount * multiplier);
+            console.log(user.balance)
             user.save((err) => {
                 if(err){
                     console.log(err.message);
@@ -40,11 +47,11 @@ betSchema.methods.finish = function chargeBet(multiplier, cb){
                         resolve(true);
                     })
                 }
+
             });
     
         });
     });
-
 }
 
 

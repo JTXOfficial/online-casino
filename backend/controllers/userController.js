@@ -4,7 +4,7 @@ const passport = require('passport');  // authentication
 
 
 exports.getUser = (req, res) => {
-    User.findById(req.params.userId)
+    User.findById(req.params.userId) // req.params.userId
     .then((user) => res.json(user))
     .catch((err) =>{
         res.status(404).json({

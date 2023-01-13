@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const session = require('express-session'); // session middleware
 const passportLocal = require("passport-local").Strategy;
 const passport = require('passport');  // authentication
-const User = require('./model/User.js'); // User Model 
+const User = require('./model/User'); // User Model 
 const Bet = require('./model/bets');
 const passportConfig = require('./passportConfig');
 
@@ -55,6 +55,10 @@ app.use(passport.session());
 dotenv.config();
 
 databaseDB();
+User.removeActiveBets(function(){
+  console.log('cleared bets');
+  Bet.removeActiveBets();
+})
 
 
 httpServer.listen(4000, () => {
