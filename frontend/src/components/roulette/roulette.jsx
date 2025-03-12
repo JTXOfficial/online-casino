@@ -26,7 +26,33 @@ const ConnectionStatus = styled.div`
   background-color: ${props => props.connected ? '#00c74d' : '#ff5555'};
 `;
 
-function Roulette() {
+const SpectatorMessage = styled.div`
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const ErrorMessage = styled.div`
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff5555;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-align: center;
+  z-index: 1000;
+  max-width: 80%;
+`;
+
+function Roulette({ isAuthenticated, openAuthModal }) {
   const { user, updateBalance } = useAuth();
   const [state, setState] = useState({
     countdown: 0,
@@ -146,7 +172,7 @@ function Roulette() {
 
     const handleBetResponse = (data) => {
       console.log("Bet response received:", data);
-      if (data.balance !== undefined) {
+      if (data.balance !== undefined && isAuthenticated) {
         console.log("Updating balance to:", data.balance);
         updateBalance(data.balance);
         
@@ -201,7 +227,7 @@ function Roulette() {
       socket.off('newBet', handleNewBet);
       socket.off('betResponse', handleBetResponse);
     };
-  }, [socket, updateBalance]);
+  }, [socket, updateBalance, isAuthenticated]);
 
   const placeBet = (data) => {
     if (!socket) {
@@ -224,13 +250,15 @@ function Roulette() {
       return;
     }
     
-    if (!user) {
+    if (!isAuthenticated) {
       console.error("Cannot place bet: user not logged in");
       setNotification({
         message: 'You must be logged in to place bets.',
         type: 'error',
         duration: 4000 // Standard duration for error notifications
       });
+      // Open the auth modal
+      openAuthModal();
       return;
     }
     
@@ -248,53 +276,47 @@ function Roulette() {
     });
   };
 
-  console.log("Rendering roulette component with state:", state);
-  console.log("Current user:", user);
-  console.log("Socket connected:", connected);
-
+  // Render the component
   return (
     <Container>
-      <ConnectionStatus connected={connected}>
-        {connected ? 'Connected' : 'Disconnected'}
-      </ConnectionStatus>
-      
       {notification && (
         <Notification 
           message={notification.message} 
           type={notification.type} 
           duration={notification.duration} 
-          onClose={() => setNotification(null)}
+          onClose={() => setNotification(null)} 
         />
       )}
       
+      <ConnectionStatus connected={connected}>
+        {connected ? 'Connected' : 'Disconnected'}
+      </ConnectionStatus>
+      
       <RouletteGame 
+        active={state.active} 
         countdown={state.countdown} 
-        roll={state.active} 
-        winningColor={state.winningColor} 
+        winningColor={state.winningColor}
         marginLeft={state.marginLeft}
       />
-      <RouletteBetting 
-        placeBet={placeBet} 
-        bets={state.bets} 
-        winningColor={state.winningColor} 
-        active={state.active}
-        connected={connected}
-      />
       
+      {!isAuthenticated && (
+        <SpectatorMessage>
+          You are currently in spectator mode. Please log in to place bets.
+        </SpectatorMessage>
+      )}
+      
+      <RouletteBetting 
+        bets={state.bets} 
+        placeBet={placeBet} 
+        active={state.active} 
+        connected={connected}
+        isAuthenticated={isAuthenticated}
+      />
+
       {connectionError && (
-        <div style={{
-          position: 'fixed',
-          bottom: '20px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          backgroundColor: '#ff5555',
-          color: 'white',
-          padding: '10px 20px',
-          borderRadius: '4px',
-          zIndex: 1000
-        }}>
+        <ErrorMessage>
           Connection Error: {connectionError}. Please refresh the page.
-        </div>
+        </ErrorMessage>
       )}
     </Container>
   );

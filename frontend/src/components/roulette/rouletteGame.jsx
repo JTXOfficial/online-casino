@@ -3,7 +3,7 @@ import Countdown from "./countdown";
 import RouletteStrip from "./rouletteStrip";
 import spin from '../../spin-select.svg';
 
-const RouletteGame = memo(function RouletteGame({ countdown, roll, winningColor, marginLeft }) {
+const RouletteGame = memo(function RouletteGame({ countdown, active, winningColor, marginLeft }) {
   const container = {
     width: '100%',
     maxWidth: '100%',
@@ -38,7 +38,7 @@ const RouletteGame = memo(function RouletteGame({ countdown, roll, winningColor,
       <div style={container} id="rouletteGameContainer">
         <img src={spin} alt="line" style={line}/>
         <RouletteStrip 
-          roll={roll} 
+          roll={active} 
           winningColor={winningColor} 
           marginLeft={marginLeft}
           countdown={countdown}

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoins } from '@fortawesome/free-solid-svg-icons'
 import { useAuth } from "../../context/AuthContext";
 
-const RouletteBetting = memo(function RouletteBetting({ bets = [], placeBet: onPlaceBet, active, connected = false }) {
+const RouletteBetting = memo(function RouletteBetting({ bets = [], placeBet: onPlaceBet, active, connected = false, isAuthenticated = false }) {
     const { user } = useAuth();
 
     const container = {
@@ -86,14 +86,14 @@ const RouletteBetting = memo(function RouletteBetting({ bets = [], placeBet: onP
     }
 
     const handlePlaceBet = (color) => {
-        console.log("Attempting to place bet:", { amount, color, active, connected, user: user?.id });
+        console.log("Attempting to place bet:", { amount, color, active, connected, isAuthenticated });
         
         if (!connected) {
             console.error("Cannot place bet: Socket not connected");
             return;
         }
         
-        if (!user) {
+        if (!isAuthenticated) {
             console.error("Cannot place bet: User not logged in");
             return;
         }
@@ -141,10 +141,10 @@ const RouletteBetting = memo(function RouletteBetting({ bets = [], placeBet: onP
         }
     }
         
-    const isButtonDisabled = active || !user || !connected || betInProgress;
+    const isButtonDisabled = active || !isAuthenticated || !connected || betInProgress;
     const getButtonCursor = () => {
         if (active) return 'not-allowed';
-        if (!user) return 'not-allowed';
+        if (!isAuthenticated) return 'not-allowed';
         if (!connected) return 'not-allowed';
         if (betInProgress) return 'wait';
         return 'pointer';
@@ -155,17 +155,17 @@ const RouletteBetting = memo(function RouletteBetting({ bets = [], placeBet: onP
             
             <div style={container}>
                 <span style={betAmount}><FontAwesomeIcon icon={faCoins} style={{color: 'gold'}}/> Bet Amount</span>
-                <input type="text" value={amount} onChange={amountChanged} style={betInput} disabled={active || !connected}/>
+                <input type="text" value={amount} onChange={amountChanged} style={betInput} disabled={active || !connected || !isAuthenticated}/>
                 <div style={{ display: 'inline-block', verticalAlign: 'middle' }}>
-                    <button style={betButton} onClick={() => setAmount(0)} disabled={!connected}>Clear</button>
-                    <button style={betButton} onClick={() => addAmount(0.01)} disabled={!connected}>+0.01</button>
-                    <button style={betButton} onClick={() => addAmount(0.10)} disabled={!connected}>+0.10</button>
-                    <button style={betButton} onClick={() => addAmount(1)} disabled={!connected}>+1.00</button>
-                    <button style={betButton} onClick={() => addAmount(10)} disabled={!connected}>+10.00</button>
-                    <button style={betButton} onClick={() => addAmount(100)} disabled={!connected}>+100.00</button>
-                    <button style={betButton} onClick={() => setAmount(prev => prev / 2)} disabled={!connected}>1/2</button>
-                    <button style={betButton} onClick={() => setAmount(prev => prev * 2)} disabled={!connected}>x2</button>
-                    <button style={betButton} onClick={setMaxAmount} disabled={!connected || !user}>Max</button>
+                    <button style={betButton} onClick={() => setAmount(0)} disabled={!connected || !isAuthenticated}>Clear</button>
+                    <button style={betButton} onClick={() => addAmount(0.01)} disabled={!connected || !isAuthenticated}>+0.01</button>
+                    <button style={betButton} onClick={() => addAmount(0.10)} disabled={!connected || !isAuthenticated}>+0.10</button>
+                    <button style={betButton} onClick={() => addAmount(1)} disabled={!connected || !isAuthenticated}>+1.00</button>
+                    <button style={betButton} onClick={() => addAmount(10)} disabled={!connected || !isAuthenticated}>+10.00</button>
+                    <button style={betButton} onClick={() => addAmount(100)} disabled={!connected || !isAuthenticated}>+100.00</button>
+                    <button style={betButton} onClick={() => setAmount(prev => prev / 2)} disabled={!connected || !isAuthenticated}>1/2</button>
+                    <button style={betButton} onClick={() => setAmount(prev => prev * 2)} disabled={!connected || !isAuthenticated}>x2</button>
+                    <button style={betButton} onClick={setMaxAmount} disabled={!connected || !isAuthenticated}>Max</button>
                 </div>
             </div>
 

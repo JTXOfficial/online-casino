@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import Roulette from './components/roulette/roulette';
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-import Header from './components/layout/Header';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import HomePage from './pages/Home';
+import AuthPage from './pages/Auth';
+import Header from './components/layout/Header';
 import styled from 'styled-components';
+import './App.css';
 
 const AppContainer = styled.div`
   min-height: 100vh;
   background-color: #172327;
 `;
 
-// Main app content that depends on authentication
+// Main app content with routing
 const AppContent = () => {
-  const { isAuthenticated, loading, login, updateBalance } = useAuth();
-  const [authMode, setAuthMode] = useState('login'); // 'login' or 'register'
+  const { loading } = useAuth();
 
   if (loading) {
     return (
@@ -24,33 +24,25 @@ const AppContent = () => {
     );
   }
 
-  const switchToLogin = () => setAuthMode('login');
-  const switchToRegister = () => setAuthMode('register');
-
   return (
     <AppContainer>
       <Header />
-      
-      {isAuthenticated ? (
-        <Roulette />
-      ) : (
-        <>
-          {authMode === 'login' ? (
-            <Login onLogin={login} onSwitchToRegister={switchToRegister} />
-          ) : (
-            <Register onSwitchToLogin={switchToLogin} />
-          )}
-        </>
-      )}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </AppContainer>
   );
 };
 
-// Root App component with AuthProvider
+// Root App component with AuthProvider and Router
 function App() {
   return (
     <AuthProvider>
-      <AppContent />
+      <Router>
+        <AppContent />
+      </Router>
     </AuthProvider>
   );
 }

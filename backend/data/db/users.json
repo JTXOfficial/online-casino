@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "_id": "77fb3a2c5886750d1d54c3df",
+    "username": "admin",
+    "password": "$2b$10$kSliuZEqgF8yxZ6hLNSe..OCx2YFZxEWh/2Cx.cAS8mCQ1j3VUdCK",
+    "email": "admin@gmail.com",
+    "balance": 1001.01,
+    "bets": [
+      "b3f9fbff38f0a85add6a87ae"
+    ]
+  }
+]
