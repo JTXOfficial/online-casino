@@ -1,0 +1,2 @@
+# This file ensures the data/db directory is tracked in Git
+# while ignoring the actual data files (*.json) as specified in .gitignore 
