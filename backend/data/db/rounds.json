@@ -222,5 +222,404 @@
     "outcome": "red",
     "client_seed": "4827a585904884b21ded340465c96c372ec83570b4dcd7fe17729e74d0f8b852",
     "server_seed": "ebb85db7e73450fcfaefdc605e1f4aa48d89b48fa70205a2df77d172f4b1f54b"
+  },
+  {
+    "_id": "7b688124aa30e9bba2e97de0",
+    "date": "2025-03-12T19:30:20.460Z",
+    "outcome": "red",
+    "client_seed": "06233306e3a1c553db18e399aa2b94d1f24412afbceb88f39953a5b3aa049922",
+    "server_seed": "ebb85db7e73450fcfaefdc605e1f4aa48d89b48fa70205a2df77d172f4b1f54b"
+  },
+  {
+    "_id": "0171537ece88dd4ba664162c",
+    "date": "2025-03-12T19:30:54.465Z",
+    "outcome": "red",
+    "client_seed": "a2cad9a8286ba77d3ec825f9769b125109d725ba5b4d7ab1034a54d53bfb1070",
+    "server_seed": "ebb85db7e73450fcfaefdc605e1f4aa48d89b48fa70205a2df77d172f4b1f54b"
+  },
+  {
+    "_id": "9c1ddb16f6ff05ab8eec291f",
+    "date": "2025-03-12T19:31:28.472Z",
+    "outcome": "black",
+    "client_seed": "65d96338e4369c354394d4005d49c61eed024e645269fccde1bbd4d673a2509a",
+    "server_seed": "ebb85db7e73450fcfaefdc605e1f4aa48d89b48fa70205a2df77d172f4b1f54b"
+  },
+  {
+    "_id": "4477f7f5421e485d33102910",
+    "date": "2025-03-12T19:32:02.476Z",
+    "outcome": "black",
+    "client_seed": "01eceb77c4b99100f4fa976d66c10229b5c44800d1448d969e789d8cbfbd1f13",
+    "server_seed": "ebb85db7e73450fcfaefdc605e1f4aa48d89b48fa70205a2df77d172f4b1f54b"
+  },
+  {
+    "_id": "923eb1f4e80795b64022be47",
+    "date": "2025-03-12T19:32:36.481Z",
+    "outcome": "black",
+    "client_seed": "b11bff9802fda40ea41030b7443fd5adac459eb6fa33706ea265b4d1bd9db4be",
+    "server_seed": "ebb85db7e73450fcfaefdc605e1f4aa48d89b48fa70205a2df77d172f4b1f54b"
+  },
+  {
+    "_id": "81661aff2c208b051c9d868a",
+    "date": "2025-03-12T19:33:10.488Z",
+    "outcome": "red",
+    "client_seed": "2e09967f2e9a57c62be2cf438e697cffc173ac764f5ea5096f0e5ddda5643417",
+    "server_seed": "ebb85db7e73450fcfaefdc605e1f4aa48d89b48fa70205a2df77d172f4b1f54b"
+  },
+  {
+    "_id": "297e0284721cf7c0136703c1",
+    "date": "2025-03-12T19:33:51.697Z",
+    "outcome": "red",
+    "client_seed": "fb0f19ee5fa44264d039a30df49464e45873857087ccddc4c029415fb97bead6",
+    "server_seed": "7fbaa69ecd9f93491c32245fd2f66452fce2371a38da0b8b9ecf90fc70a514e1"
+  },
+  {
+    "_id": "309a98c57783fdb0370693d8",
+    "date": "2025-03-12T19:34:25.701Z",
+    "outcome": "black",
+    "client_seed": "0ad4a7e88ccfbb0c6164104012014e1f28879307e4df94f43c8e9e1af3a305e9",
+    "server_seed": "7fbaa69ecd9f93491c32245fd2f66452fce2371a38da0b8b9ecf90fc70a514e1"
+  },
+  {
+    "_id": "7d201b4e8043b73ebfd74b2f",
+    "date": "2025-03-12T19:34:59.706Z",
+    "outcome": "red",
+    "client_seed": "fb030d90fd59e4ecfaa344165c8a8098b31be3d6ddb517a56eb96d636b89399a",
+    "server_seed": "7fbaa69ecd9f93491c32245fd2f66452fce2371a38da0b8b9ecf90fc70a514e1"
+  },
+  {
+    "_id": "68dc66d9da2ba4e7b2db0f00",
+    "date": "2025-03-12T19:35:33.711Z",
+    "outcome": "black",
+    "client_seed": "f874ef25aac0fb40f9df9fdecd6e535668854c0a9726e458b113af2b39178cf7",
+    "server_seed": "7fbaa69ecd9f93491c32245fd2f66452fce2371a38da0b8b9ecf90fc70a514e1"
+  },
+  {
+    "_id": "6f596e057f6e86aa8db822f9",
+    "date": "2025-03-12T19:36:07.716Z",
+    "outcome": "red",
+    "client_seed": "fb16ac61a0b06519699b4e5176a026d9d41e52f02ac7a52b2df47cc675396829",
+    "server_seed": "7fbaa69ecd9f93491c32245fd2f66452fce2371a38da0b8b9ecf90fc70a514e1"
+  },
+  {
+    "_id": "0e92194f9640b3f0c769eac3",
+    "date": "2025-03-12T19:36:41.721Z",
+    "outcome": "red",
+    "client_seed": "f438e9d56dc13c85a77d5d2f5dd918d194d052b4ccaab75c1cb06658a415be3b",
+    "server_seed": "7fbaa69ecd9f93491c32245fd2f66452fce2371a38da0b8b9ecf90fc70a514e1"
+  },
+  {
+    "_id": "c010878d4b690043af56aa51",
+    "date": "2025-03-12T19:37:15.727Z",
+    "outcome": "red",
+    "client_seed": "404a3a72b551cd208904911a601bc5ff4d7617a4dc0b7e2fea3298d6d02d4f51",
+    "server_seed": "7fbaa69ecd9f93491c32245fd2f66452fce2371a38da0b8b9ecf90fc70a514e1"
+  },
+  {
+    "_id": "90cdac31b5a909188e80e87f",
+    "date": "2025-03-12T19:37:49.733Z",
+    "outcome": "green",
+    "client_seed": "689c279624e6b6322ccf8415e4cc83b644e9ff220e0d12e2eb90db84922ddfb7",
+    "server_seed": "7fbaa69ecd9f93491c32245fd2f66452fce2371a38da0b8b9ecf90fc70a514e1"
+  },
+  {
+    "_id": "bb291bada495b659e3330e07",
+    "date": "2025-03-12T19:38:23.738Z",
+    "outcome": "red",
+    "client_seed": "a2dcd7d93e362f3481a72e61e0e1e91b168af054fce583ae177cd43b702f1f42",
+    "server_seed": "7fbaa69ecd9f93491c32245fd2f66452fce2371a38da0b8b9ecf90fc70a514e1"
+  },
+  {
+    "_id": "77d313f7dedd99a55928494b",
+    "date": "2025-03-12T19:41:01.070Z",
+    "outcome": "black",
+    "client_seed": "7d85e4a7b297526ec713a0ca8d8c4e21032e9f2ed489199773dad574bd295f1c",
+    "server_seed": "4bad78bd5bd8a9ddd6753c2fe300328d561d28757b3b618b6c31631a001487aa"
+  },
+  {
+    "_id": "020d3a953c8bcb822e471a79",
+    "date": "2025-03-12T19:41:35.075Z",
+    "outcome": "black",
+    "client_seed": "e95f8a15690f6e9a99e351ec73781408545af4c329a8c960331e4579bf62171f",
+    "server_seed": "4bad78bd5bd8a9ddd6753c2fe300328d561d28757b3b618b6c31631a001487aa"
+  },
+  {
+    "_id": "0ccfda5cda7d8cb4219f843b",
+    "date": "2025-03-12T19:42:09.081Z",
+    "outcome": "red",
+    "client_seed": "187f95ba9ea197f8b1302935107c4a5682628a8881533c2b563f186e51b3d2e9",
+    "server_seed": "4bad78bd5bd8a9ddd6753c2fe300328d561d28757b3b618b6c31631a001487aa"
+  },
+  {
+    "_id": "ed80e084001ed5673b3ec6e8",
+    "date": "2025-03-12T19:42:43.086Z",
+    "outcome": "red",
+    "client_seed": "b3a262f24cbd3e4c2354a2d706cafa83764663ad9b547cdfbd126514ddea4d18",
+    "server_seed": "4bad78bd5bd8a9ddd6753c2fe300328d561d28757b3b618b6c31631a001487aa"
+  },
+  {
+    "_id": "749f8077cdc34dd164561c36",
+    "date": "2025-03-12T19:43:11.880Z",
+    "outcome": "red",
+    "client_seed": "34f2f930f0aea9b393776a22555276321c9bb45e56b8160835c4986c46ad7040",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "5528f3a12e2593d5163088c8",
+    "date": "2025-03-12T19:43:45.885Z",
+    "outcome": "red",
+    "client_seed": "802e2429540de3efccbef0cdb69d6876ce9f935a1fe6503b680823cb68851e3f",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "8ae170d58051d7a7aac8c6d9",
+    "date": "2025-03-12T19:44:19.888Z",
+    "outcome": "red",
+    "client_seed": "fcf00ac0d8e3f0e23bf7287d0f79a4ce72591ef5d7aea47efe0dd02e848bb0fa",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "e327da150436f48b0d1a5d74",
+    "date": "2025-03-12T19:44:53.892Z",
+    "outcome": "black",
+    "client_seed": "62c6c524e2e4c8cb2d7a38099ebb01c9041ba4152646246baf0548c45cf7046b",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "1f89d47b6f41b83b2e4af28e",
+    "date": "2025-03-12T19:45:27.897Z",
+    "outcome": "black",
+    "client_seed": "23e8aa955714a64a3ef6f3172d5340c883988047df716530a580393f114b8c89",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "62efd40e4e833769cc803925",
+    "date": "2025-03-12T19:46:01.900Z",
+    "outcome": "black",
+    "client_seed": "8f02f4622decddb564b57cdd64addec86cd4995f63383f0fe3a58c3d61d98ae1",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "d1169aa57145970c76a624b0",
+    "date": "2025-03-12T19:46:35.906Z",
+    "outcome": "red",
+    "client_seed": "e6e1d21ce0ac068f91a504aaa21d7018da52a87cae4ed9744447757904c15d75",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "4674d477c9fe91f3d6464b95",
+    "date": "2025-03-12T19:47:09.910Z",
+    "outcome": "red",
+    "client_seed": "77d5fb077d4270ee4d7a64cd8aefc4e13811369390385d50e9af6b3a628f1e2b",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "6f4b31344644c7999b12a61f",
+    "date": "2025-03-12T19:47:43.915Z",
+    "outcome": "black",
+    "client_seed": "cb3fdb6e4daba62165249be30345b2e0c07010cc16d04193e924d24074ec82fa",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "7e96a9d9a759cb4ea4bfa08d",
+    "date": "2025-03-12T19:48:17.919Z",
+    "outcome": "black",
+    "client_seed": "a0d3a22873e0cc6df929bc93abf3c318f8feb75602d503f24c04a10bd1883a2b",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "6bc8249069b358de9c105fd3",
+    "date": "2025-03-12T19:48:51.923Z",
+    "outcome": "black",
+    "client_seed": "cbc9c1fd5b1d71a5798978ae716d318a84b6a27d1f77a828c6c76e5335a03a22",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "a2a0be8aa33d0d6fdc64d1e5",
+    "date": "2025-03-12T19:49:25.926Z",
+    "outcome": "red",
+    "client_seed": "3ad7c94e9c9b31a820b1bde60f7f22a0546b5401b856f9b2fc69fa96e20f3f89",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "5a4fea278fd2cfd8a15d4b6b",
+    "date": "2025-03-12T19:49:59.931Z",
+    "outcome": "green",
+    "client_seed": "8e7fdf97b1d543020db6a3d711bd66cfd7950125cdc9df425fbe1f77a15e654f",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "acbda4030842b785aa233244",
+    "date": "2025-03-12T19:50:33.936Z",
+    "outcome": "black",
+    "client_seed": "d99568c38a242d6e0e1f55d74b8dbcd2e983f0d5c04c278fe0c979e17bfbe292",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "eab322decd903d84ebf84d99",
+    "date": "2025-03-12T19:51:07.941Z",
+    "outcome": "black",
+    "client_seed": "7f1dae275628807927748222d6a7fbfe8b2671b3bc67e2bc00870ca9977227b9",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "b186b9d30137e9aaeec24651",
+    "date": "2025-03-12T19:51:41.947Z",
+    "outcome": "black",
+    "client_seed": "5ef62e5e087370e50b174c8f504368cdf5e6286889525109b1a183667fd5b31c",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "c159265e2897fcecfeb1755e",
+    "date": "2025-03-12T19:52:15.951Z",
+    "outcome": "black",
+    "client_seed": "7458d4baa818b505a6ad18f29cc147ecb9d251560aa76c2313bd01b83c464670",
+    "server_seed": "e51fd9a0d3215a3bb7168f5eb72b63649db3ebfabf329d6e99d0f997e83ae938"
+  },
+  {
+    "_id": "ed4ccfaccc11251a90e8cfb0",
+    "date": "2025-03-12T19:52:45.455Z",
+    "outcome": "red",
+    "client_seed": "ff869d33cf3a78c87bd58598a5ffed5e536cd0cf5f109da12d74b188ffa41fc2",
+    "server_seed": "713eeba4cc681c5155cd757e3ad65abbadb47cf9a885b9b9db0b1e18efd74ac4"
+  },
+  {
+    "_id": "774bc2c5f9324ff77ce10305",
+    "date": "2025-03-12T19:53:19.462Z",
+    "outcome": "red",
+    "client_seed": "a48ced4d69d8d7c180f15d9027be26577874e811b0d1ce8760ec33aea519d3c2",
+    "server_seed": "713eeba4cc681c5155cd757e3ad65abbadb47cf9a885b9b9db0b1e18efd74ac4"
+  },
+  {
+    "_id": "6cf346c99e2a99224970f925",
+    "date": "2025-03-12T19:53:53.466Z",
+    "outcome": "black",
+    "client_seed": "d07fce30aca95ba263afabd02c7cec6e2cd76b00d5c0335dfc33ef19ac1edbae",
+    "server_seed": "713eeba4cc681c5155cd757e3ad65abbadb47cf9a885b9b9db0b1e18efd74ac4"
+  },
+  {
+    "_id": "56c9f072239c8df4440983f9",
+    "date": "2025-03-12T19:54:27.471Z",
+    "outcome": "red",
+    "client_seed": "f726338b571c0ed05c626e55b9f2922102409170e6f267b16227fccdb4ad2349",
+    "server_seed": "713eeba4cc681c5155cd757e3ad65abbadb47cf9a885b9b9db0b1e18efd74ac4"
+  },
+  {
+    "_id": "19ecdbb807dfb1b3868940de",
+    "date": "2025-03-12T19:55:01.475Z",
+    "outcome": "black",
+    "client_seed": "8555b3e9be8fb167aaa8d7fbc9b7c69b5a8b39d5cee8b88121d39d0f5aefc17e",
+    "server_seed": "713eeba4cc681c5155cd757e3ad65abbadb47cf9a885b9b9db0b1e18efd74ac4"
+  },
+  {
+    "_id": "70279462b5a67175a081fdca",
+    "date": "2025-03-12T19:55:35.478Z",
+    "outcome": "red",
+    "client_seed": "62399aa44c52e3752fc87884b01c3528659fc81609d2f3a219dd286d78c9f042",
+    "server_seed": "713eeba4cc681c5155cd757e3ad65abbadb47cf9a885b9b9db0b1e18efd74ac4"
+  },
+  {
+    "_id": "1aa8edcf68509ed504a26f82",
+    "date": "2025-03-12T19:56:09.482Z",
+    "outcome": "red",
+    "client_seed": "5105af729a295b47b3249afcadcf443f683e2fe5a56029beaa369ee501089d79",
+    "server_seed": "713eeba4cc681c5155cd757e3ad65abbadb47cf9a885b9b9db0b1e18efd74ac4"
+  },
+  {
+    "_id": "f5c5dbe5b83b9137f583397a",
+    "date": "2025-03-12T19:56:43.487Z",
+    "outcome": "red",
+    "client_seed": "bd0601688bb30b2f34493d187ce822693a9b0d43001fb7aa72575b358ec7ab88",
+    "server_seed": "713eeba4cc681c5155cd757e3ad65abbadb47cf9a885b9b9db0b1e18efd74ac4"
+  },
+  {
+    "_id": "c70778d69de02c4e748e6f00",
+    "date": "2025-03-12T19:57:29.807Z",
+    "outcome": "green",
+    "client_seed": "99665e57e376ea59ba9509d137196da0ab3ff6a0d5c959ba7852640c4d1938dd",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "1d81c874df5c02e04666ad5b",
+    "date": "2025-03-12T19:58:03.810Z",
+    "outcome": "red",
+    "client_seed": "b2ab294610cee60f8a837e0219b13b53c4dcced67fb82fdcdf112eab7e55a494",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "f64975a9e79fc89cca0710cc",
+    "date": "2025-03-12T19:58:37.814Z",
+    "outcome": "black",
+    "client_seed": "f4a41be1fcfa6cf0a8ed7c8dd39e3b693bd8418ea951598e329dec82570ebed6",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "a34282086c78f8004aed8d61",
+    "date": "2025-03-12T19:59:11.819Z",
+    "outcome": "red",
+    "client_seed": "90151cde33c3a1723ccf268373a186f705b3d208695516329839e9ea752b728d",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "8343b1f81e145c282bd85425",
+    "date": "2025-03-12T19:59:45.822Z",
+    "outcome": "green",
+    "client_seed": "fd8315ba3dafccf9b7359b9f146220438dd71805bc2d4acb78eb7ea1022fcc64",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "6ddc472407899a5d22dd22b0",
+    "date": "2025-03-12T20:00:19.826Z",
+    "outcome": "red",
+    "client_seed": "db62c383755936595ab7ab57967051452ae9142b89451fb53b9c1a6ea68ffb5f",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "51b3cf61ad8e50281fb0cc61",
+    "date": "2025-03-12T20:00:53.831Z",
+    "outcome": "red",
+    "client_seed": "bf0a516efede47aee5091d739e28ec4acb5635a836d16f37cf4ef7592c5704a7",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "2c66ee29684f791f308abbb2",
+    "date": "2025-03-12T20:01:27.840Z",
+    "outcome": "green",
+    "client_seed": "726b3221fd28b6b6780d8454d83a29cec41cb9770546023ae513ba1e94686dfa",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "106da174a6716c7e2ad28f9a",
+    "date": "2025-03-12T20:02:01.844Z",
+    "outcome": "black",
+    "client_seed": "989ee79c2d70e7d90ad3b659ab9de724446fd84f5d43f75db7e886b9b76a27ce",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "a9578a4affd1e459486f56c5",
+    "date": "2025-03-12T20:02:35.850Z",
+    "outcome": "black",
+    "client_seed": "2b2c5ec8e6f43d88ffc7e993e77428ea9eedf8b0cb4b0d07df12b7af441a8a65",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "a7ca706f8345f930868bc470",
+    "date": "2025-03-12T20:03:09.855Z",
+    "outcome": "black",
+    "client_seed": "0ec43cfdc8cdab4470d9ab1545fb062615b720b138f5e0781c1c460686a62ab8",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "2372f6b7144752cf554f4bb6",
+    "date": "2025-03-12T20:03:43.861Z",
+    "outcome": "black",
+    "client_seed": "7ae8e757e5017439d223ab797f9f00c2adf1449407f601df686d16eae648952f",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
+  },
+  {
+    "_id": "ec739585c33e2dae94dc844f",
+    "date": "2025-03-12T20:04:17.865Z",
+    "outcome": "red",
+    "client_seed": "f11a74dcddef11bff568ac38f099766a76700dede92421991c51869afa92477f",
+    "server_seed": "761261441e32140214b1c55fa42303d8bae7067c79f37b2277fbafeae7b722c7"
   }
 ]

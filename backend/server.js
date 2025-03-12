@@ -65,6 +65,9 @@ app.use(express.json({
   extended: false
 }));
 
+// Serve static files from the public directory
+app.use('/uploads', express.static('public/uploads'));
+
 // Set up session middleware
 app.use(session({
   secret: 'r8q,+&1LM3)CD*zAGpx1xm{NeQhc;#',

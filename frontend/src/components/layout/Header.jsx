@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useAuth } from '../../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoins, faSignOutAlt, faUser, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCoins, faSignOutAlt, faUser, faSignInAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 
 const HeaderContainer = styled.header`
@@ -42,10 +42,33 @@ const Balance = styled.div`
   font-weight: bold;
 `;
 
-const Username = styled.div`
+const UserAvatar = styled.div`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #2c3136;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+const Username = styled(Link)`
   display: flex;
   align-items: center;
   gap: 8px;
+  color: white;
+  text-decoration: none;
+  
+  &:hover {
+    color: #00c74d;
+  }
 `;
 
 const Button = styled.button`
@@ -90,8 +113,14 @@ const Header = () => {
       
       {isAuthenticated ? (
         <UserInfo>
-          <Username>
-            <FontAwesomeIcon icon={faUser} />
+          <Username to="/profile">
+            {user.profilePicture ? (
+              <UserAvatar>
+                <img src={`http://localhost:4000${user.profilePicture}`} alt="Profile" />
+              </UserAvatar>
+            ) : (
+              <FontAwesomeIcon icon={faUserCircle} />
+            )}
             {user.username}
           </Username>
           

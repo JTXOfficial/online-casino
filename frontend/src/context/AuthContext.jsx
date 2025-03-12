@@ -58,6 +58,153 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Update user profile
+  const updateUser = async (userData) => {
+    if (user) {
+      console.log(`Updating user profile for ${user.username} with ID:`, user.id || user._id);
+      
+      try {
+        // If verifyOnly flag is set, only verify the password without updating the profile
+        if (userData.verifyOnly) {
+          const response = await fetch(`http://localhost:4000/api/auth/verify-password`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              userId: user.id || user._id,
+              password: userData.currentPassword
+            }),
+          });
+          
+          if (!response.ok) {
+            return false;
+          }
+          
+          return true;
+        }
+        
+        // Make API call to update user profile
+        const userId = user.id || user._id;
+        const url = `http://localhost:4000/api/auth/users/${userId}`;
+        
+        const response = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: userData.username,
+            email: userData.email,
+            currentPassword: userData.currentPassword
+          }),
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Failed to update profile');
+        }
+        
+        const updatedUserData = await response.json();
+        
+        // Update local state with the response from the server
+        const updatedUser = { 
+          ...user, 
+          ...updatedUserData,
+          // Ensure we preserve the ID in the format the app expects
+          id: updatedUserData.id || updatedUserData._id || user.id || user._id
+        };
+        
+        setUser(updatedUser);
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+        
+        return updatedUser;
+      } catch (error) {
+        console.error("Error updating user profile:", error);
+        throw error;
+      }
+    } else {
+      console.error("Cannot update user: No user logged in");
+      throw new Error("No user logged in");
+    }
+  };
+
+  // Update user password
+  const updatePassword = async (passwordData) => {
+    if (user) {
+      try {
+        const userId = user.id || user._id;
+        const url = `http://localhost:4000/api/auth/users/${userId}/password`;
+        
+        const response = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            currentPassword: passwordData.currentPassword,
+            newPassword: passwordData.newPassword
+          }),
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Failed to update password');
+        }
+        
+        return true;
+      } catch (error) {
+        console.error("Error updating password:", error);
+        throw error;
+      }
+    } else {
+      console.error("Cannot update password: No user logged in");
+      throw new Error("No user logged in");
+    }
+  };
+
+  // Upload profile picture
+  const uploadProfilePicture = async (file) => {
+    if (user) {
+      try {
+        const userId = user.id || user._id;
+        const url = `http://localhost:4000/api/auth/users/${userId}/profile-picture`;
+        
+        const formData = new FormData();
+        formData.append('profilePicture', file);
+        
+        const response = await fetch(url, {
+          method: 'POST',
+          body: formData,
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Failed to upload profile picture');
+        }
+        
+        const data = await response.json();
+        
+        // Update user with new profile picture URL
+        const updatedUser = { 
+          ...user, 
+          profilePicture: data.profilePicture 
+        };
+        
+        setUser(updatedUser);
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+        
+        return data.profilePicture;
+      } catch (error) {
+        console.error("Error uploading profile picture:", error);
+        throw error;
+      }
+    } else {
+      console.error("Cannot upload profile picture: No user logged in");
+      throw new Error("No user logged in");
+    }
+  };
+
   // Context value
   const value = {
     user,
@@ -65,6 +212,9 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     updateBalance,
+    updateUser,
+    updatePassword,
+    uploadProfilePicture,
     isAuthenticated: !!user,
   };
 

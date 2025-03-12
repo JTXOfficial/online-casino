@@ -2,11 +2,12 @@
   {
     "_id": "77fb3a2c5886750d1d54c3df",
     "username": "admin",
-    "password": "$2b$10$kSliuZEqgF8yxZ6hLNSe..OCx2YFZxEWh/2Cx.cAS8mCQ1j3VUdCK",
+    "password": "$2b$10$OS1mTiI8fmmYdZduEm.7keSVsTGrIZMQT7IIB6pmj5l8Vg.Nl9Eki",
     "email": "admin@gmail.com",
-    "balance": 1001.01,
+    "balance": 1110.01,
     "bets": [
-      "b3f9fbff38f0a85add6a87ae"
-    ]
+      "2b80c5a6917f49bc5bc47fee"
+    ],
+    "profilePicture": "/uploads/profile-pictures/profile-1741809455539-234552416.jpg"
   }
 ]

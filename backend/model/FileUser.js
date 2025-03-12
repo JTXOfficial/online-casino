@@ -10,6 +10,7 @@ class User {
     this.email = data.email;
     this.balance = data.balance || 5;
     this.bets = data.bets || [];
+    this.profilePicture = data.profilePicture || null;
   }
 
   // Save user to the database
@@ -55,6 +56,83 @@ class User {
 
   static findById(id, callback) {
     return this.findOne({ _id: id }, callback);
+  }
+
+  static updateUser(userData, callback) {
+    console.log("FileUser.updateUser called with:", userData);
+    
+    if (!userData || !userData._id) {
+      console.error("Invalid user data:", userData);
+      if (callback) callback(new Error('Invalid user data'));
+      return false;
+    }
+
+    const users = readData(USERS_FILE);
+    console.log(`Looking for user with ID: ${userData._id} in ${users.length} users`);
+    
+    const existingUserIndex = users.findIndex(user => user._id === userData._id);
+
+    if (existingUserIndex === -1) {
+      console.error(`User not found with ID: ${userData._id}`);
+      if (callback) callback(new Error('User not found'));
+      return false;
+    }
+
+    console.log(`Found user at index ${existingUserIndex}:`, users[existingUserIndex]);
+
+    // Update user data while preserving other fields
+    users[existingUserIndex] = {
+      ...users[existingUserIndex],
+      username: userData.username,
+      email: userData.email,
+      profilePicture: userData.profilePicture !== undefined ? userData.profilePicture : users[existingUserIndex].profilePicture,
+      // Don't update password or balance here
+    };
+
+    console.log("Updated user data:", users[existingUserIndex]);
+
+    const success = writeData(USERS_FILE, users);
+    console.log(`Write to users file ${success ? 'succeeded' : 'failed'}`);
+    
+    if (callback) callback(success ? null : new Error('Failed to update user'));
+    return success;
+  }
+
+  static updatePassword(userData, callback) {
+    console.log("FileUser.updatePassword called with:", userData);
+    
+    if (!userData || !userData._id) {
+      console.error("Invalid user data:", userData);
+      if (callback) callback(new Error('Invalid user data'));
+      return false;
+    }
+
+    const users = readData(USERS_FILE);
+    console.log(`Looking for user with ID: ${userData._id} in ${users.length} users`);
+    
+    const existingUserIndex = users.findIndex(user => user._id === userData._id);
+
+    if (existingUserIndex === -1) {
+      console.error(`User not found with ID: ${userData._id}`);
+      if (callback) callback(new Error('User not found'));
+      return false;
+    }
+
+    console.log(`Found user at index ${existingUserIndex}:`, users[existingUserIndex]);
+
+    // Update only the password field
+    users[existingUserIndex] = {
+      ...users[existingUserIndex],
+      password: userData.password
+    };
+
+    console.log("Updated user password");
+
+    const success = writeData(USERS_FILE, users);
+    console.log(`Write to users file ${success ? 'succeeded' : 'failed'}`);
+    
+    if (callback) callback(success ? null : new Error('Failed to update password'));
+    return success;
   }
 
   static updateMany(query, update, callback) {

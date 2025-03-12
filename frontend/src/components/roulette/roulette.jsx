@@ -26,18 +26,6 @@ const ConnectionStatus = styled.div`
   background-color: ${props => props.connected ? '#00c74d' : '#ff5555'};
 `;
 
-const SpectatorMessage = styled.div`
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px auto;
-  max-width: 600px;
-  text-align: center;
-  font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-`;
-
 const ErrorMessage = styled.div`
   position: fixed;
   bottom: 20px;
@@ -298,12 +286,6 @@ function Roulette({ isAuthenticated, openAuthModal }) {
         winningColor={state.winningColor}
         marginLeft={state.marginLeft}
       />
-      
-      {!isAuthenticated && (
-        <SpectatorMessage>
-          You are currently in spectator mode. Please log in to place bets.
-        </SpectatorMessage>
-      )}
       
       <RouletteBetting 
         bets={state.bets} 

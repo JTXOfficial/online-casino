@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider, useAuth } from './context/AuthContext';
 import HomePage from './pages/Home';
 import AuthPage from './pages/Auth';
+import ProfilePage from './pages/Profile';
 import Header from './components/layout/Header';
 import styled from 'styled-components';
 import './App.css';
@@ -30,6 +31,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AppContainer>
